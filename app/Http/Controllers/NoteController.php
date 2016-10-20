@@ -57,11 +57,19 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        return response()->json(
-            Note::where('id', $id)
-                ->where('user_id', Auth::guard('api')->id())
-                ->first()
-        );
+        return Note::find($id);
+        
+        // return response()->json(
+        //     Note::where('id', $id)
+        //         ->where('user_id', Auth::guard('api')->id())
+        //         ->first()
+        // );
+
+    }
+
+    public function showAll(){
+        // return "ahoj";
+        return Note::all();
     }
 
     /**
